@@ -40,8 +40,7 @@
     "prettier": "prettier 'src/**/*.[tj]s' 'postgraphiql/src/**/*.[tj]s'",
     "prettier:fix": "yarn prettier --write",
     "prettier:check": "yarn prettier --list-different",
-    "test": "./scripts/test",
-    "prepack": "./scripts/build"
+    "test": "./scripts/test"
   },
   "dependencies": {
     "@graphile/lru": "^4.4.1-alpha.2",
