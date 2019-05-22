@@ -248,9 +248,12 @@ class PostGraphiQL extends React.PureComponent {
          headersTextValid: isValidJSON(newHeaderText),
        },
        () => {
-         if (this.state.headersTextValid && this.subscriptionsClient) {
-           // Reconnect to websocket with new headers
-           this.subscriptionsClient.close(false, true);
+         if (this.state.headersTextValid) {
+           this.updateSchema();
+           if (this.subscriptionsClient) {
+             // Reconnect to websocket with new headers
+             this.subscriptionsClient.close(false, true);
+           }
          }
        }
      )
