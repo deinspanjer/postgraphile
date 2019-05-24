@@ -82,6 +82,8 @@ const websocketUrl = POSTGRAPHILE_CONFIG.graphqlUrl.match(/^https?:/)
       l.port !== 80 && l.port !== 443 ? ':' + l.port : ''
     }${POSTGRAPHILE_CONFIG.graphqlUrl}`;
 
+const initialAuthorizationValue = l.hash ? `"Bearer ${l.hash.substring(1)}"` : null;
+
 /**
  * The standard GraphiQL interface wrapped with some PostGraphile extensions.
  * Including a JWT setter and live schema udpate capabilities.
@@ -89,6 +91,7 @@ const websocketUrl = POSTGRAPHILE_CONFIG.graphqlUrl.match(/^https?:/)
 class PostGraphiQL extends React.PureComponent {
   // Use same storage as GraphiQL to save explorer visibility state
   _storage = new StorageAPI();
+
 
   state = {
     // Our GraphQL schema which GraphiQL will use to do its intelligence
@@ -98,7 +101,7 @@ class PostGraphiQL extends React.PureComponent {
 
     // deinspanjer: I think we'd like to have a way to wait for an initial value
     // if we are using graphiqlAuthorizationEventOrigin but I'm not sure how to do that.
-    headersText: '{\n"Authorization": null\n}\n',
+    headersText: `{\n"Authorization": ${initialAuthorizationValue}\n}\n`,
     headersTextValid: true,
 
     explorerIsOpen: this._storage.get('explorerIsOpen') === 'false' ? false : true,
