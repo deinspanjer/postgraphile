@@ -182,9 +182,6 @@ class PostGraphiQL extends React.PureComponent {
             console.log('Authorization header updated by ', event.origin);
           }
         }, false);
-    } else {
-      // This message should be skipped after debugging of the feature.
-      console.log('graphiqlAuthorizationEventOrigin not set, skipping listener... ', POSTGRAPHILE_CONFIG);
     }
 
     // If we were given a `streamUrl`, we want to construct an `EventSource`

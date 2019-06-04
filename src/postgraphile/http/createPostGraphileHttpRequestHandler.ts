@@ -542,7 +542,6 @@ export default function createPostGraphileHttpRequestHandler(
           res.setHeader('X-Frame-Options', `allow-from ${graphiqlAuthorizationEventOrigin}`);
           res.setHeader('Content-Security-Policy', `frame-ancestors 'self' ${graphiqlAuthorizationEventOrigin}`);
         } else {
-          console.log('did not set up ', options);
           res.setHeader('X-Frame-Options', 'SAMEORIGIN');
           res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");
         }
