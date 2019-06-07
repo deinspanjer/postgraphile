@@ -5,7 +5,7 @@
   "homepage": "https://graphile.org/postgraphile/",
   "dependencies": {
     "graphiql": "npm:@benjie/graphiql@0.13.1-benjie.0",
-    "graphiql-explorer": "^0.3.7",
+    "graphiql-explorer": "^0.4.2",
     "graphql": "^14.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
